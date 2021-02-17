@@ -4,7 +4,10 @@
 
 A simple python &amp; pytq5 app to turn off your PC in "X" minutes or at specific time of current day.
 
- - App is writen in Python & Pyqt5. For now only works on Linux machines.
+
+### Dependencies:
+
+App is writen in Python & Pyqt5. For now only works on Linux machines.
  
    You need to have installed:
  
