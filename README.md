@@ -14,7 +14,7 @@ App is writen in Python & Pyqt5. For now only works on Linux machines.
    * python (ver 3 and above)
    * python-pyqt5
    
-### How to start app:
+### How to start TimerDown:
 
 - To run app just start TimerDown.py with python in your terminal:
 
