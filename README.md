@@ -21,3 +21,11 @@ App is writen in Python & Pyqt5. For now only works on Linux machines.
 ```
 $ python TimerDown.py
 ```
+
+### Licence
+
+TimerDown is free software under GPL v3 licence.
+
+Python licence: https://docs.python.org/3/license.html
+
+The icons used in this app are: https://github.com/KDE/oxygen-icons
