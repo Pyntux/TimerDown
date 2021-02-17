@@ -12,7 +12,7 @@ class Ui_MainWindow(object):
         MainWindow.setFixedSize(371, 265)
         #MainWindow.resize(371, 289)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("icons/TimerDown.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("icons/timerdown.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
