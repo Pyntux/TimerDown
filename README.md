@@ -8,7 +8,7 @@ A simple python &amp; pytq5 app to turn off your PC in "X" minutes or at specifi
  
    You need to have installed:
  
-   * python
+   * python (ver 3 and above)
    * python-pyqt5
    
 
