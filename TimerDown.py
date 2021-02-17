@@ -93,6 +93,7 @@ class Ui_MainWindow(object):
         self.reset_button.setIcon(icon2)
         self.reset_button.setIconSize(QtCore.QSize(20, 20))
         self.reset_button.setObjectName("reset_button")
+
         self.verticalLayout.addWidget(self.groupBox_buttons)
         self.groupBox_quick = QtWidgets.QGroupBox(self.verticalLayoutWidget)
         self.groupBox_quick.setObjectName("groupBox_quick")
@@ -117,7 +118,7 @@ class Ui_MainWindow(object):
         self.label_info.setObjectName("label_info")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.showMessage("App system info:")
+        self.statusbar.showMessage("   App notices :")
         self.statusbar.addPermanentWidget(self.label_info)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
