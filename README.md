@@ -14,4 +14,6 @@ A simple python &amp; pytq5 app to turn off your PC in "X" minutes or at specifi
 
 - To run app just start TimerDown.py with python in your terminal:
 
-python TimerDown.py
+...
+$ python TimerDown.py
+...
