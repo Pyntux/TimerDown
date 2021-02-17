@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from PyQt5 import QtCore, QtGui, QtWidgets
 import os
 import datetime
