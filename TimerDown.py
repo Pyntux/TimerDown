@@ -29,7 +29,7 @@ class Ui_MainWindow(object):
         self.groupBox_levi.setTitle("")
         self.groupBox_levi.setObjectName("groupBox_levi")
         self.label_levo_gore = QtWidgets.QLabel(self.groupBox_levi)
-        self.label_levo_gore.setGeometry(QtCore.QRect(50, 0, 101, 31))
+        self.label_levo_gore.setGeometry(QtCore.QRect(50, 0, 111, 31)) #101
         self.label_levo_gore.setObjectName("label_levo_gore")
 
         # Gornji spinbox, za minute ili sate, zavisno od toga šta je čekirano:
@@ -199,7 +199,7 @@ class Ui_MainWindow(object):
         self.apply_button.clicked.connect(self.drop_menu)
 
         # Exit button:
-        self.exit_app_button.setText(_translate("MainWindow", "Exit from application"))
+        self.exit_app_button.setText(_translate("MainWindow", "Exit from app"))
         self.exit_app_button.clicked.connect(self.exit_app)
 
     # Za prikaz sata u LCD polju:
