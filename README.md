@@ -1,6 +1,6 @@
 # TimerDown
 
-![Timer-Down.png](https://raw.githubusercontent.com/Pyntux/TimerDown/main/Timer-Down.png)
+![TimerDown.png](https://raw.githubusercontent.com/Pyntux/TimerDown/main/TimerDown.png)
 
 A simple python &amp; pyQT5 app to turn off (shutdown) your PC in "X" minutes or hours, or at specific time of current day.
 
