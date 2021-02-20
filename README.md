@@ -2,12 +2,12 @@
 
 ![Timer-Down.png](https://raw.githubusercontent.com/Pyntux/TimerDown/main/Timer-Down.png)
 
-A simple python &amp; pytq5 app to turn off your PC in "X" minutes or at specific time of current day.
+A simple python &amp; pytq5 app to turn off (shutdown) your PC in "X" minutes or hours, or at specific time of current day.
 
 
 ### Dependencies:
 
-App is writen in Python & Pyqt5. For now only works on Linux machines.
+App is writen in Python & Pyqt5. For now only works on Linux machines. (maybe Mac, I do not know...)
  
    You need to have installed:
  
