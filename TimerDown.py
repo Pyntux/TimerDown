@@ -30,7 +30,7 @@ class Ui_MainWindow(object):
         self.groupBox_levi.setTitle("")
         self.groupBox_levi.setObjectName("groupBox_levi")
         self.label_levo_gore = QtWidgets.QLabel(self.groupBox_levi)
-        self.label_levo_gore.setGeometry(QtCore.QRect(50, 0, 111, 31)) #101
+        self.label_levo_gore.setGeometry(QtCore.QRect(50, 0, 111, 31))  # 101
         self.label_levo_gore.setObjectName("label_levo_gore")
 
         # Gornji spinbox, za minute ili sate, zavisno od toga šta je čekirano:
@@ -230,14 +230,18 @@ class Ui_MainWindow(object):
             h, m = self.spinBox_donji_hour.value(), self.spinBox_donji_min.value()
             hm_min = h * 60 + m
             time = QTime.currentTime()
-            now_hm_min = time.hour() * 60 + time.minute()
-            final_num = hm_min - now_hm_min
+            now_time_in_min = time.hour() * 60 + time.minute()
+            final_num = hm_min - now_time_in_min
             if final_num < 0:
                 self.label_info.setText("Time in past! Set up again!")
                 self.reset_hm()
             else:
+                # os.system(f"shutdown {h}:{m}")  --- Može i ovako
                 os.system(f"shutdown -h {final_num}")
-                self.label_info.setText(f"Your PC will shutdown at {h}:{m} !")
+                if m < 10:
+                    self.label_info.setText(f"Your PC will shutdown at {h}:0{m} !")
+                else:
+                    self.label_info.setText(f"Your PC will shutdown at {h}:{m} !")
 
     # Za reset dugme:
     def reset_button(self):
@@ -273,3 +277,6 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+
+# TODO
+# Prebaciti kod u opciju da shutdown koristi mogućnost vremena u koje se gasi
