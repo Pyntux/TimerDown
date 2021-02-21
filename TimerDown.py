@@ -277,6 +277,3 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
-
-# TODO
-# Prebaciti kod u opciju da shutdown koristi mogućnost vremena u koje se gasi
