@@ -3,6 +3,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QTime
 import os
+import resources
 
 
 class Ui_MainWindow(object):
@@ -11,7 +12,7 @@ class Ui_MainWindow(object):
         MainWindow.setGeometry(850, 400, 411, 333)
         MainWindow.setFixedSize(411, 333)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("icons/timerdown.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/icons/timerdown.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -89,14 +90,14 @@ class Ui_MainWindow(object):
         self.Button_set_up = QtWidgets.QPushButton(self.groupBox_buttons)
         self.Button_set_up.setGeometry(QtCore.QRect(17, 12, 141, 41))
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("icons/set_up.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(":/icons/set_up.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.Button_set_up.setIcon(icon1)
         self.Button_set_up.setIconSize(QtCore.QSize(24, 24))
         self.Button_set_up.setObjectName("Button_set_up")
         self.Button_reset = QtWidgets.QPushButton(self.groupBox_buttons)
         self.Button_reset.setGeometry(QtCore.QRect(17, 55, 141, 41))
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("icons/reset.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(":/icons/reset.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.Button_reset.setIcon(icon2)
         self.Button_reset.setIconSize(QtCore.QSize(24, 24))
         self.Button_reset.setObjectName("Button_reset")
@@ -109,15 +110,15 @@ class Ui_MainWindow(object):
         self.comboBox.setGeometry(QtCore.QRect(7, 30, 161, 31))
         self.comboBox.setObjectName("comboBox")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("icons/shutdown.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap(":/icons/shutdown.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.comboBox.addItem(icon3, "")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("icons/reboot.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap(":/icons/reboot.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.comboBox.addItem(icon4, "")
         self.apply_button = QtWidgets.QPushButton(self.groupBox_quick_actions)
         self.apply_button.setGeometry(QtCore.QRect(8, 66, 160, 31))
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("icons/apply.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap(":/icons/apply.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.apply_button.setIcon(icon5)
         self.apply_button.setObjectName("apply_button")
         self.verticalLayout_3.addWidget(self.groupBox_quick_actions)
@@ -135,7 +136,7 @@ class Ui_MainWindow(object):
         self.exit_app_button = QtWidgets.QPushButton(self.groupBox_bootom_levi)
         self.exit_app_button.setGeometry(QtCore.QRect(20, 10, 161, 31))
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("icons/exit.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon6.addPixmap(QtGui.QPixmap(":/icons/exit.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.exit_app_button.setIcon(icon6)
         self.exit_app_button.setObjectName("exit_app_button")
         self.horizontalLayout_3.addWidget(self.groupBox_bootom_levi)
