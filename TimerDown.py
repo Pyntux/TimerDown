@@ -112,7 +112,7 @@ class Ui_MainWindow(object):
         icon3.addPixmap(QtGui.QPixmap("icons/shutdown.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.comboBox.addItem(icon3, "")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(":/icons/reboot.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap("icons/reboot.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.comboBox.addItem(icon4, "")
         self.apply_button = QtWidgets.QPushButton(self.groupBox_quick_actions)
         self.apply_button.setGeometry(QtCore.QRect(8, 66, 160, 31))
