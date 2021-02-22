@@ -1,0 +1,21 @@
+[Desktop Entry]
+Comment[en_US]=
+Comment=
+Exec=/usr/bin/timerdown
+GenericName[en_US]=
+GenericName=
+Icon=/usr/share/timerdown/timerdown.ico
+MimeType=
+Name[en_US]=TimerDown
+Name=TimerDown
+NoDisplay=false
+Path=/usr/bin/timerdown
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+Categories=Utility
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
