@@ -1,7 +1,7 @@
 [Desktop Entry]
 Categories=Utility
 Comment[en_US]=
-Comment=
+Comment=Shutdown timer
 Exec=/usr/bin/timerdown
 GenericName[en_US]=
 GenericName=
