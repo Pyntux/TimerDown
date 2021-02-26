@@ -1,10 +1,10 @@
 [Desktop Entry]
 Categories=Utility
 Comment[en_US]=
-Comment=
+Comment=Shutdown timer
 Exec=/usr/bin/timerdown
 GenericName[en_US]=
-GenericName=
+GenericName=Shutdown timer app
 Icon=/usr/share/timerdown/timerdown.ico
 MimeType=
 Name[en_US]=TimerDown
