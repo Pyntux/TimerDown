@@ -254,39 +254,34 @@ class Ui_MainWindow(object):
 
     # Zakazuje izabranu akciju:
     def schedule(self):
+        time = QTime.currentTime()
         value = self.spinBox_gornji.value()
+        h = self.spinBox_donji_hour.value()
+        m = self.spinBox_donji_min.value()
+
         if self.checkBox_min.isChecked():
             os.system(f"shutdown -h {value}")
             self.label_info.setText(f"Your PC will shutdown for {value} minutes!")
-            # Namešta tray label na info:
-            self.tray.setToolTip(f"Your PC will shutdown for {value} minutes!")
+
         elif self.checkBox_hour.isChecked():
             value_h = value * 60
             os.system(f"shutdown -h {value_h}")
             self.label_info.setText(f"Your PC will shutdown for {value} hours!")
-            # Namešta tray label na info:
-            self.tray.setToolTip(f"Your PC will shutdown for {value} hours!")
+
         else:
-            h, m = self.spinBox_donji_hour.value(), self.spinBox_donji_min.value()
             hm_min = h * 60 + m
-            time = QTime.currentTime()
             now_time_in_min = time.hour() * 60 + time.minute()
             final_num = hm_min - now_time_in_min
             if final_num < 0:
                 self.label_info.setText("Time in past! Set up again!")
-                self.tray.setToolTip("Time in past! Set up again!")
                 self.reset_hm()
             else:
                 # os.system(f"shutdown {h}:{m}")  --- Može i ovako
                 os.system(f"shutdown -h {final_num}")
                 if m < 10:
                     self.label_info.setText(f"Your PC will shutdown at {h}:0{m} !")
-                    # Namešta tray tooltip na info
-                    self.tray.setToolTip(f"Your PC will shutdown at {h}:0{m} !")
                 else:
                     self.label_info.setText(f"Your PC will shutdown at {h}:{m} !")
-                    # Namešta ray tooltip na info
-                    self.tray.setToolTip(f"Your PC will shutdown at {h}:{m} !")
 
     # Za reset dugme:
     def reset_button(self):
