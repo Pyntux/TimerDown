@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+# For tray icons etc...
+from PyQt5.QtGui import *
 from PyQt5.QtCore import QTime
 import os
 import resources
@@ -22,6 +24,40 @@ class Ui_MainWindow(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setContentsMargins(3, 3, 3, 3)
         self.horizontalLayout.setObjectName("horizontalLayout")
+
+        ##############################################################
+
+        # TRAY:
+        self.tray = QtWidgets.QSystemTrayIcon()
+        # Ovu komandu dodati svuda dole da izmeni tooltip zavisno o komandi
+        self.tray.setToolTip("TimerDown")
+        self.icon = QIcon(":/icons/shutdown.ico")
+        self.tray.setIcon(self.icon)
+        self.tray.setVisible(True)
+
+        # menu
+        self.menu = QtWidgets.QMenu()
+        self.tray.setContextMenu(self.menu)
+
+        self.option1_icon = QIcon(":/icons/show.ico")
+        self.option1 = QtWidgets.QAction("Show TimerDown")
+        self.option1.setIcon(self.option1_icon)
+        self.option1.triggered.connect(self.show_from_tray)
+        self.menu.addAction(self.option1)
+
+        self.option2_icon = QIcon(":/icons/reset.ico")
+        self.option2 = QtWidgets.QAction("Reset schedule")
+        self.option2.setIcon(self.option2_icon)
+        self.option2.triggered.connect(self.reset_button)
+        self.menu.addAction(self.option2)
+
+        self.option3_icon = QIcon(":/icons/exit.ico")
+        self.option3 = QtWidgets.QAction("Exit application")
+        self.option3.setIcon(self.option3_icon)
+        self.option3.triggered.connect(self.exit_app)
+        self.menu.addAction(self.option3)
+
+        ##############################################################
 
         # Za trenutno vreme
         time = QTime.currentTime()
@@ -187,7 +223,7 @@ class Ui_MainWindow(object):
 
         # Shedule i reset dugmići:
         self.Button_set_up.setText(_translate("MainWindow", "Set up"))
-        self.Button_set_up.clicked.connect(self.shedule)
+        self.Button_set_up.clicked.connect(self.schedule)
         self.Button_reset.setText(_translate("MainWindow", "Reset"))
         self.Button_reset.clicked.connect(self.reset_button)
 
@@ -217,15 +253,19 @@ class Ui_MainWindow(object):
         self.spinBox_donji_min.setValue(time.minute())
 
     # Zakazuje izabranu akciju:
-    def shedule(self):
+    def schedule(self):
         value = self.spinBox_gornji.value()
         if self.checkBox_min.isChecked():
             os.system(f"shutdown -h {value}")
             self.label_info.setText(f"Your PC will shutdown for {value} minutes!")
+            # Namešta tray label na info:
+            self.tray.setToolTip(f"Your PC will shutdown for {value} minutes!")
         elif self.checkBox_hour.isChecked():
             value_h = value * 60
             os.system(f"shutdown -h {value_h}")
             self.label_info.setText(f"Your PC will shutdown for {value} hours!")
+            # Namešta tray label na info:
+            self.tray.setToolTip(f"Your PC will shutdown for {value} hours!")
         else:
             h, m = self.spinBox_donji_hour.value(), self.spinBox_donji_min.value()
             hm_min = h * 60 + m
@@ -234,14 +274,19 @@ class Ui_MainWindow(object):
             final_num = hm_min - now_time_in_min
             if final_num < 0:
                 self.label_info.setText("Time in past! Set up again!")
+                self.tray.setToolTip("Time in past! Set up again!")
                 self.reset_hm()
             else:
                 # os.system(f"shutdown {h}:{m}")  --- Može i ovako
                 os.system(f"shutdown -h {final_num}")
                 if m < 10:
                     self.label_info.setText(f"Your PC will shutdown at {h}:0{m} !")
+                    # Namešta tray tooltip na info
+                    self.tray.setToolTip(f"Your PC will shutdown at {h}:0{m} !")
                 else:
                     self.label_info.setText(f"Your PC will shutdown at {h}:{m} !")
+                    # Namešta ray tooltip na info
+                    self.tray.setToolTip(f"Your PC will shutdown at {h}:{m} !")
 
     # Za reset dugme:
     def reset_button(self):
@@ -254,6 +299,7 @@ class Ui_MainWindow(object):
         self.spinBox_donji_hour.setValue(time.hour())
         self.spinBox_donji_min.setValue(time.minute())
         self.label_info.setText("Set up again!")
+        self.tray.setToolTip("TimerDown")
         os.system("shutdown -c")
 
     # Brze akcije iz padajućeg menija
@@ -267,6 +313,10 @@ class Ui_MainWindow(object):
     # Izlazi iz aplikacije na dugme Exit
     def exit_app(self):
         sys.exit()
+
+    # Za prikaz aplikacije na "show" dugme u tray-u
+    def show_from_tray(self):
+        MainWindow.show()
 
 
 if __name__ == "__main__":
