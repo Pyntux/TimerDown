@@ -267,11 +267,14 @@ class Ui_MainWindow(object):
         if self.checkBox_min.isChecked():
             os.system(f"shutdown -h {value}")
             self.label_info.setText(f"Your PC will shutdown in {value} minutes!")
+            # Za disable dugme kad ga klikne
+            self.Button_set_up.setEnabled(False)
 
         elif self.checkBox_hour.isChecked():
             value_h = value * 60
             os.system(f"shutdown -h {value_h}")
             self.label_info.setText(f"Your PC will shutdown in {value} hours!")
+            self.Button_set_up.setEnabled(False)
 
         else:
             hm_min = h * 60 + m
@@ -283,6 +286,7 @@ class Ui_MainWindow(object):
             else:
                 # os.system(f"shutdown {h}:{m}")  --- Može i ovako
                 os.system(f"shutdown -h {final_num}")
+                self.Button_set_up.setEnabled(False)
                 if m < 10:
                     self.label_info.setText(f"Your PC will shutdown at {h}:0{m} !")
                     self.tray.setToolTip(f"Your PC will shutdown at {h}:0{m} !")
@@ -333,6 +337,7 @@ class Ui_MainWindow(object):
         self.label_info.setText("Set up again!")
         self.tray.setToolTip("TimerDown")
         os.system("shutdown -c")
+        self.Button_set_up.setEnabled(True)
 
     # Brze akcije iz padajućeg menija
     def drop_menu(self):
@@ -349,6 +354,9 @@ class Ui_MainWindow(object):
     # Za prikaz aplikacije na "show" dugme u tray-u
     def show_from_tray(self):
         MainWindow.show()
+
+    def proba(self):
+        self.apply_button.setEnabled(False)
 
 ################################################################################################
 
