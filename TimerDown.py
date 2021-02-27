@@ -4,6 +4,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 # For tray icons etc...
 from PyQt5.QtGui import *
 from PyQt5.QtCore import QTime
+import datetime
 import os
 import resources
 
@@ -60,7 +61,8 @@ class Ui_MainWindow(object):
         ##############################################################
 
         # Za trenutno vreme
-        time = QTime.currentTime()
+        # time = QTime.currentTime()
+        time = datetime.datetime.now()
 
         self.groupBox_levi = QtWidgets.QGroupBox(self.horizontalLayoutWidget)
         self.groupBox_levi.setTitle("")
@@ -99,7 +101,7 @@ class Ui_MainWindow(object):
         self.spinBox_donji_hour = QtWidgets.QSpinBox(self.groupBox_levi)
         self.spinBox_donji_hour.setGeometry(QtCore.QRect(30, 160, 71, 41))
         self.spinBox_donji_hour.setMaximum(23)
-        self.spinBox_donji_hour.setMinimum(time.hour())
+        self.spinBox_donji_hour.setMinimum(time.hour)  # ---> hour() ako koristiš qtime
         self.spinBox_donji_hour.setObjectName("spinBox_donji_hour")
         # Checkbox za gašenje računara u određeno vreme:
         self.checkBox = QtWidgets.QCheckBox(self.groupBox_levi)
@@ -238,6 +240,7 @@ class Ui_MainWindow(object):
         self.exit_app_button.setText(_translate("MainWindow", "Exit from app"))
         self.exit_app_button.clicked.connect(self.exit_app)
 
+##################################################################################################
     # Za prikaz sata u LCD polju:
     def showTime(self):
         time = QTime.currentTime()
@@ -248,29 +251,31 @@ class Ui_MainWindow(object):
 
     # Podešava i namešta spinere za gašenje u određeno vreme na trenutno vreme kada se podigne app
     def reset_hm(self):
-        time = QTime.currentTime()
-        self.spinBox_donji_hour.setValue(time.hour())
-        self.spinBox_donji_min.setValue(time.minute())
+        time = datetime.datetime.now()
+        # time = QTime.currentTime()
+        self.spinBox_donji_hour.setValue(time.hour)  # hour() ako se koristi qtime
+        self.spinBox_donji_min.setValue(time.minute)
 
     # Zakazuje izabranu akciju:
     def schedule(self):
-        time = QTime.currentTime()
+        time = datetime.datetime.now()
+        # time = QTime.currentTime()
         value = self.spinBox_gornji.value()
         h = self.spinBox_donji_hour.value()
         m = self.spinBox_donji_min.value()
 
         if self.checkBox_min.isChecked():
             os.system(f"shutdown -h {value}")
-            self.label_info.setText(f"Your PC will shutdown for {value} minutes!")
+            self.label_info.setText(f"Your PC will shutdown in {value} minutes!")
 
         elif self.checkBox_hour.isChecked():
             value_h = value * 60
             os.system(f"shutdown -h {value_h}")
-            self.label_info.setText(f"Your PC will shutdown for {value} hours!")
+            self.label_info.setText(f"Your PC will shutdown in {value} hours!")
 
         else:
             hm_min = h * 60 + m
-            now_time_in_min = time.hour() * 60 + time.minute()
+            now_time_in_min = time.hour * 60 + time.minute  # hour() ako se koristi qtime
             final_num = hm_min - now_time_in_min
             if final_num < 0:
                 self.label_info.setText("Time in past! Set up again!")
@@ -280,19 +285,51 @@ class Ui_MainWindow(object):
                 os.system(f"shutdown -h {final_num}")
                 if m < 10:
                     self.label_info.setText(f"Your PC will shutdown at {h}:0{m} !")
+                    self.tray.setToolTip(f"Your PC will shutdown at {h}:0{m} !")
                 else:
                     self.label_info.setText(f"Your PC will shutdown at {h}:{m} !")
+                    self.tray.setToolTip(f"Your PC will shutdown at {h}:{m} !")
+
+        self.trayTooltip()
+
+    # Za tray Tooltip:
+
+    def trayTooltip(self):
+        now = datetime.datetime.now()
+
+        # Ako je odabrano gašenje za "X" minuta:
+        if self.checkBox_min.isChecked():
+            min_in_s = self.spinBox_gornji.value() * 60  # Prebacuje odabrani broj minuta u sekunde zbog timedelta
+            action_time = now + datetime.timedelta(seconds=min_in_s)
+            if action_time.day == now.day:
+                self.tray.setToolTip(
+                    f"Your PC will shutdown at {action_time.hour}:{action_time.minute} !")
+            else:
+                self.tray.setToolTip(
+                    f"Your PC will shutdown on {action_time.day}/{action_time.month}/{action_time.year} at {action_time.hour}:{action_time.minute} !")
+
+        # Ako je odabrano gašenje za "X" sati:
+        elif self.checkBox_hour.isChecked():
+            # Prebacuje izabrani broj sati u sekunde zbog timedelta
+            hour_in_s = self.spinBox_gornji.value() * 3600
+            action_time = now + datetime.timedelta(seconds=hour_in_s)
+            if action_time.day == now.day:
+                self.tray.setToolTip(
+                    f"Your PC will shutdown at {action_time.hour}:{action_time.minute} !")
+            else:
+                self.tray.setToolTip(
+                    f"Your PC will shutdown on {action_time.day}/{action_time.month}/{action_time.year} at {action_time.hour}:{action_time.minute} !")
 
     # Za reset dugme:
     def reset_button(self):
-        time = QTime.currentTime()
-        #now = datetime.datetime.now()
+        # time = QTime.currentTime()
+        time = datetime.datetime.now()
         if self.checkBox_min.isChecked():
             self.spinBox_gornji.setValue(15)
         elif self.checkBox_hour.isChecked():
             self.spinBox_gornji.setValue(1)
-        self.spinBox_donji_hour.setValue(time.hour())
-        self.spinBox_donji_min.setValue(time.minute())
+        self.spinBox_donji_hour.setValue(time.hour)  # hour() ako se koristi qtime
+        self.spinBox_donji_min.setValue(time.minute)
         self.label_info.setText("Set up again!")
         self.tray.setToolTip("TimerDown")
         os.system("shutdown -c")
@@ -312,6 +349,8 @@ class Ui_MainWindow(object):
     # Za prikaz aplikacije na "show" dugme u tray-u
     def show_from_tray(self):
         MainWindow.show()
+
+################################################################################################
 
 
 if __name__ == "__main__":
