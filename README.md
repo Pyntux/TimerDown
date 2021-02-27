@@ -29,9 +29,12 @@ $ python TimerDown.py
 
 If you are using Arch Linux or Arch based distro, there is 2 AUR packages:
 
-[timerdown](https://aur.archlinux.org/packages/timerdown/) # this one is based on releases on git
+This one is based on releases on git:
+[timerdown](https://aur.archlinux.org/packages/timerdown/)
 
-[timerdown-git](https://aur.archlinux.org/packages/timerdown-git/) # this one is git version...
+
+This one is git version...
+[timerdown-git](https://aur.archlinux.org/packages/timerdown-git/) 
 
 
 ### Licence
