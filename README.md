@@ -33,7 +33,7 @@ This one is based on releases on git:
 [timerdown](https://aur.archlinux.org/packages/timerdown/)
 
 
-This one is git version...
+This one is git version:
 [timerdown-git](https://aur.archlinux.org/packages/timerdown-git/) 
 
 
