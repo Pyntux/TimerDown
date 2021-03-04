@@ -17,13 +17,25 @@ App is writen in Python & Pyqt5.
    * python (ver 3 and above)
    * python-pyqt5
    
-### How to start TimerDown:
+### How to start TimerDown from source:
 
 - To run app just start TimerDown.py with python in your terminal:
 
 ```
 $ python TimerDown.py
 ```
+
+### Packages
+
+If you are using Arch Linux or Arch based distro, there is 2 AUR packages:
+
+This one is based on releases on git:
+[timerdown](https://aur.archlinux.org/packages/timerdown/)
+
+
+This one is git version:
+[timerdown-git](https://aur.archlinux.org/packages/timerdown-git/) 
+
 
 ### Licence
 
