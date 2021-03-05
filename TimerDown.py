@@ -12,10 +12,10 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setGeometry(700, 300, 582, 479)
         MainWindow.setFixedSize(582, 479)
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("/usr/share/timerdown/timerdown.ico"),
+        main_icon = QtGui.QIcon()
+        main_icon.addPixmap(QtGui.QPixmap("/usr/share/timerdown/timerdown.ico"),
                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        MainWindow.setWindowIcon(icon)
+        MainWindow.setWindowIcon(main_icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
@@ -151,7 +151,7 @@ class Ui_MainWindow(object):
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
         self.frame_3 = QtWidgets.QFrame(self.groupBox_left)
-        self.frame_3.setGeometry(QtCore.QRect(89, 18, 121, 31))
+        self.frame_3.setGeometry(QtCore.QRect(89, 18, 124, 31)) #bilo 121
         self.frame_3.setAutoFillBackground(True)
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -189,7 +189,7 @@ class Ui_MainWindow(object):
         self.line_7.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_7.setObjectName("line_7")
         self.line_2 = QtWidgets.QFrame(self.groupBox_left)
-        self.line_2.setGeometry(QtCore.QRect(209, 25, 41, 16))
+        self.line_2.setGeometry(QtCore.QRect(211, 25, 39, 16))
         self.line_2.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
@@ -248,10 +248,10 @@ class Ui_MainWindow(object):
         self.groupBox_right_top.setObjectName("groupBox_right_top")
         self.button_set_up = QtWidgets.QPushButton(self.groupBox_right_top)
         self.button_set_up.setGeometry(QtCore.QRect(20, 10, 233, 51))
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/set_up.ico"),
+        set_up_icon = QtGui.QIcon()
+        set_up_icon.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/set_up.ico"),
                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.button_set_up.setIcon(icon1)
+        self.button_set_up.setIcon(set_up_icon)
         self.button_set_up.setIconSize(QtCore.QSize(24, 23))
         self.button_set_up.setCheckable(False)
         self.button_set_up.setAutoExclusive(False)
@@ -261,19 +261,19 @@ class Ui_MainWindow(object):
         self.button_set_up.setObjectName("button_set_up")
         self.button_reset = QtWidgets.QPushButton(self.groupBox_right_top)
         self.button_reset.setGeometry(QtCore.QRect(20, 65, 233, 51))
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/reset.ico"),
+        reset_icon = QtGui.QIcon()
+        reset_icon.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/reset.ico"),
                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.button_reset.setIcon(icon2)
+        self.button_reset.setIcon(reset_icon)
         self.button_reset.setIconSize(QtCore.QSize(24, 24))
         self.button_reset.setAutoExclusive(False)
         self.button_reset.setObjectName("button_reset")
         self.button_to_tray = QtWidgets.QPushButton(self.groupBox_right_top)
         self.button_to_tray.setGeometry(QtCore.QRect(20, 120, 233, 51))
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/go_to_tray.ico"),
+        go_to_tray_icon = QtGui.QIcon()
+        go_to_tray_icon.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/go_to_tray.ico"),
                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.button_to_tray.setIcon(icon3)
+        self.button_to_tray.setIcon(go_to_tray_icon)
         self.button_to_tray.setIconSize(QtCore.QSize(24, 24))
         self.button_to_tray.setAutoExclusive(False)
         self.button_to_tray.setObjectName("button_to_tray")
@@ -300,18 +300,18 @@ class Ui_MainWindow(object):
         self.radioButton_2 = QtWidgets.QRadioButton(self.groupBox_right_bottom)
         self.radioButton_2.setGeometry(QtCore.QRect(60, 79, 141, 22))
         self.radioButton_2.setLayoutDirection(QtCore.Qt.LeftToRight)
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/reboot.ico"),
+        icon_qreboot = QtGui.QIcon()
+        icon_qreboot.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/reboot.ico"),
                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.radioButton_2.setIcon(icon4)
+        self.radioButton_2.setIcon(icon_qreboot)
         self.radioButton_2.setIconSize(QtCore.QSize(24, 24))
         self.radioButton_2.setObjectName("radioButton_2")
         self.apply_Button = QtWidgets.QPushButton(self.groupBox_right_bottom)
         self.apply_Button.setGeometry(QtCore.QRect(20, 120, 233, 51))
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/apply.ico"),
+        icon_apply = QtGui.QIcon()
+        icon_apply.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/apply.ico"),
                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.apply_Button.setIcon(icon5)
+        self.apply_Button.setIcon(icon_apply)
         self.apply_Button.setIconSize(QtCore.QSize(24, 24))
         self.apply_Button.setObjectName("apply_Button")
         self.frame_5 = QtWidgets.QFrame(self.groupBox_right_bottom)
@@ -335,10 +335,10 @@ class Ui_MainWindow(object):
         self.groupBox_exit.setObjectName("groupBox_exit")
         self.exit_button = QtWidgets.QPushButton(self.groupBox_exit)
         self.exit_button.setGeometry(QtCore.QRect(20, 7, 233, 51))
-        icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/exit.ico"),
+        exit_icon = QtGui.QIcon()
+        exit_icon.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/exit.ico"),
                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.exit_button.setIcon(icon6)
+        self.exit_button.setIcon(exit_icon)
         self.exit_button.setIconSize(QtCore.QSize(24, 24))
         self.exit_button.setObjectName("exit_button")
         self.horizontalLayout_2.addWidget(self.groupBox_exit)
