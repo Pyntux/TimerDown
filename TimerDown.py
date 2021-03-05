@@ -291,7 +291,10 @@ class Ui_MainWindow(object):
         self.radioButton = QtWidgets.QRadioButton(self.groupBox_right_bottom)
         self.radioButton.setGeometry(QtCore.QRect(60, 43, 161, 22))
         self.radioButton.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.radioButton.setIcon(icon)
+        icon_qshutdown = QtGui.QIcon()
+        icon_qshutdown.addPixmap(QtGui.QPixmap(
+            "/usr/share/timerdown/icons/shutdown.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.radioButton.setIcon(icon_qshutdown)
         self.radioButton.setIconSize(QtCore.QSize(24, 24))
         self.radioButton.setObjectName("radioButton")
         self.radioButton_2 = QtWidgets.QRadioButton(self.groupBox_right_bottom)
