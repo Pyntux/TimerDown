@@ -31,7 +31,6 @@ class Ui_MainWindow(object):
         ###########
 
         self.tray = QtWidgets.QSystemTrayIcon()
-        # Ovu komandu dodati svuda dole da izmeni tooltip zavisno o komandi
         self.tray.setToolTip("TimerDown")
         self.icon = QIcon("/usr/share/timerdown/icons/shutdown.ico")
         self.tray.setIcon(self.icon)
@@ -481,8 +480,9 @@ class Ui_MainWindow(object):
 
         # If you choose to shutdown PC in "X" minutes:
         if self.checkBox_min.isChecked():
-            min_in_s = self.spinBox_top.value() * 60  # Min in sec, for using in timedelta
-            action_time = now + datetime.timedelta(seconds=min_in_s)
+            #min_in_s = self.spinBox_top.value() * 60  # Min in sec, for using in timedelta
+            #action_time = now + datetime.timedelta(seconds=min_in_s)
+            action_time = now + datetime.timedelta(minutes=self.spinBox_top.value())
             if action_time.day == now.day:
                 self.tray.setToolTip(
                     f"Your PC will shutdown at {action_time.hour}:{action_time.minute} !")
@@ -492,8 +492,9 @@ class Ui_MainWindow(object):
 
         # If you choose to shutdown PC in "X" hours:
         elif self.checkBox_hour.isChecked():
-            hour_in_s = self.spinBox_top.value() * 3600  # Hours in sec, for using in timedelta
-            action_time = now + datetime.timedelta(seconds=hour_in_s)
+            #hour_in_s = self.spinBox_top.value() * 3600  # Hours in sec, for using in timedelta
+            #action_time = now + datetime.timedelta(seconds=hour_in_s)
+            action_time = now + datetime.timedelta(hours=self.spinBox_top.value())
             if action_time.day == now.day:
                 self.tray.setToolTip(
                     f"Your PC will shutdown at {action_time.hour}:{action_time.minute} !")
