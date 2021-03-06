@@ -13,7 +13,7 @@ class Ui_MainWindow(object):
         MainWindow.setGeometry(700, 300, 582, 479)
         MainWindow.setFixedSize(582, 479)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("icons/shutdown.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("/usr/share/timerdown/timerdown.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
