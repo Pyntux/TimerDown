@@ -12,9 +12,10 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setGeometry(700, 300, 582, 479)
         MainWindow.setFixedSize(582, 479)
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("icons/shutdown.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        MainWindow.setWindowIcon(icon)
+        main_icon = QtGui.QIcon()
+        main_icon.addPixmap(QtGui.QPixmap("/usr/share/timerdown/timerdown.ico"),
+                       QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(main_icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
@@ -65,11 +66,10 @@ class Ui_MainWindow(object):
 
         self.groupBox_left = QtWidgets.QGroupBox(self.horizontalLayoutWidget)
         self.groupBox_left.setTitle("")
-        self.groupBox_left.setAlignment(QtCore.Qt.AlignCenter)
         self.groupBox_left.setCheckable(False)
         self.groupBox_left.setObjectName("groupBox_left")
         self.spinBox_top = QtWidgets.QSpinBox(self.groupBox_left)
-        self.spinBox_top.setGeometry(QtCore.QRect(45, 88, 82, 50))
+        self.spinBox_top.setGeometry(QtCore.QRect(35, 88, 82, 50))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.spinBox_top.setFont(font)
@@ -79,14 +79,14 @@ class Ui_MainWindow(object):
         self.spinBox_top.setProperty("value", 15)
         self.spinBox_top.setObjectName("spinBox_top")
         self.checkBox_min = QtWidgets.QCheckBox(self.groupBox_left)
-        self.checkBox_min.setGeometry(QtCore.QRect(149, 86, 88, 22))
+        self.checkBox_min.setGeometry(QtCore.QRect(139, 86, 88, 22))
         self.checkBox_min.setAutoFillBackground(False)
         self.checkBox_min.setChecked(True)
         self.checkBox_min.setAutoExclusive(True)
         self.checkBox_min.setTristate(False)
         self.checkBox_min.setObjectName("checkBox_min")
         self.checkBox_hour = QtWidgets.QCheckBox(self.groupBox_left)
-        self.checkBox_hour.setGeometry(QtCore.QRect(149, 117, 88, 22))
+        self.checkBox_hour.setGeometry(QtCore.QRect(139, 117, 88, 22))
         self.checkBox_hour.setAutoExclusive(True)
         self.checkBox_hour.setObjectName("checkBox_hour")
         self.line = QtWidgets.QFrame(self.groupBox_left)
@@ -95,12 +95,12 @@ class Ui_MainWindow(object):
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.checkBox_at_time = QtWidgets.QCheckBox(self.groupBox_left)
-        self.checkBox_at_time.setGeometry(QtCore.QRect(97, 206, 131, 22))
+        self.checkBox_at_time.setGeometry(QtCore.QRect(87, 206, 131, 22))
         self.checkBox_at_time.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.checkBox_at_time.setAutoExclusive(True)
         self.checkBox_at_time.setObjectName("checkBox_at_time")
         self.spinBox_hour = QtWidgets.QSpinBox(self.groupBox_left)
-        self.spinBox_hour.setGeometry(QtCore.QRect(45, 270, 82, 52))
+        self.spinBox_hour.setGeometry(QtCore.QRect(35, 270, 82, 52))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.spinBox_hour.setFont(font)
@@ -109,7 +109,7 @@ class Ui_MainWindow(object):
         self.spinBox_hour.setMinimum(time.hour)
         self.spinBox_hour.setObjectName("spinBox_hour")
         self.spinBox_min = QtWidgets.QSpinBox(self.groupBox_left)
-        self.spinBox_min.setGeometry(QtCore.QRect(145, 270, 82, 52))
+        self.spinBox_min.setGeometry(QtCore.QRect(135, 270, 82, 52))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.spinBox_min.setFont(font)
@@ -117,10 +117,10 @@ class Ui_MainWindow(object):
         self.spinBox_min.setMaximum(59)
         self.spinBox_min.setObjectName("spinBox_min")
         self.label_top = QtWidgets.QLabel(self.groupBox_left)
-        self.label_top.setGeometry(QtCore.QRect(108, 24, 111, 18))
+        self.label_top.setGeometry(QtCore.QRect(99, 24, 101, 18))
         self.label_top.setObjectName("label_top")
         self.label_2_tacke = QtWidgets.QLabel(self.groupBox_left)
-        self.label_2_tacke.setGeometry(QtCore.QRect(128, 274, 16, 41))
+        self.label_2_tacke.setGeometry(QtCore.QRect(118, 274, 16, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
@@ -129,50 +129,88 @@ class Ui_MainWindow(object):
         self.label_2_tacke.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2_tacke.setObjectName("label_2_tacke")
         self.frame = QtWidgets.QFrame(self.groupBox_left)
-        self.frame.setGeometry(QtCore.QRect(38, 74, 196, 80))
+        self.frame.setGeometry(QtCore.QRect(28, 74, 196, 80))
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.line_min = QtWidgets.QFrame(self.frame)
-        self.line_min.setGeometry(QtCore.QRect(86, 15, 41, 16))
+        self.line_min.setGeometry(QtCore.QRect(80, 15, 41, 16))
         self.line_min.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_min.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_min.setObjectName("line_min")
         self.line_hour = QtWidgets.QFrame(self.frame)
-        self.line_hour.setGeometry(QtCore.QRect(86, 46, 41, 16))
+        self.line_hour.setGeometry(QtCore.QRect(80, 46, 41, 16))
         self.line_hour.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_hour.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_hour.setObjectName("line_hour")
         self.line_hour.raise_()
         self.line_min.raise_()
         self.frame_2 = QtWidgets.QFrame(self.groupBox_left)
-        self.frame_2.setGeometry(QtCore.QRect(38, 256, 196, 80))
+        self.frame_2.setGeometry(QtCore.QRect(28, 256, 196, 80))
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
         self.frame_3 = QtWidgets.QFrame(self.groupBox_left)
-        self.frame_3.setGeometry(QtCore.QRect(98, 18, 121, 31))
+        self.frame_3.setGeometry(QtCore.QRect(89, 18, 124, 31)) #bilo 121
         self.frame_3.setAutoFillBackground(True)
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
         self.frame_4 = QtWidgets.QFrame(self.groupBox_left)
-        self.frame_4.setGeometry(QtCore.QRect(90, 202, 140, 31))
+        self.frame_4.setGeometry(QtCore.QRect(80, 202, 140, 31))
         self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_4.setObjectName("frame_4")
         self.label = QtWidgets.QLabel(self.groupBox_left)
-        self.label.setGeometry(QtCore.QRect(42, 14, 51, 41))
+        self.label.setGeometry(QtCore.QRect(35, 14, 51, 41))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("icons/hourglass.ico"))
+        self.label.setPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/hourglass.ico"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.groupBox_left)
-        self.label_2.setGeometry(QtCore.QRect(41, 196, 41, 41))
+        self.label_2.setGeometry(QtCore.QRect(31, 196, 41, 41))
         self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap("icons/timer.ico"))
+        self.label_2.setPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/timer.ico"))
         self.label_2.setScaledContents(True)
         self.label_2.setObjectName("label_2")
+        self.line_5 = QtWidgets.QFrame(self.groupBox_left)
+        self.line_5.setGeometry(QtCore.QRect(219, 210, 31, 16))
+        self.line_5.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_5.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_5.setObjectName("line_5")
+        self.line_6 = QtWidgets.QFrame(self.groupBox_left)
+        self.line_6.setGeometry(QtCore.QRect(241, 218, 16, 78))
+        self.line_6.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line_6.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_6.setObjectName("line_6")
+        self.line_7 = QtWidgets.QFrame(self.groupBox_left)
+        self.line_7.setGeometry(QtCore.QRect(223, 287, 27, 16))
+        self.line_7.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_7.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_7.setObjectName("line_7")
+        self.line_2 = QtWidgets.QFrame(self.groupBox_left)
+        self.line_2.setGeometry(QtCore.QRect(211, 25, 39, 16))
+        self.line_2.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_2.setObjectName("line_2")
+        self.line_3 = QtWidgets.QFrame(self.groupBox_left)
+        self.line_3.setGeometry(QtCore.QRect(239, 33, 20, 88))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.line_3.setFont(font)
+        self.line_3.setAutoFillBackground(False)
+        self.line_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.line_3.setLineWidth(1)
+        self.line_3.setMidLineWidth(0)
+        self.line_3.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line_3.setObjectName("line_3")
+        self.line_4 = QtWidgets.QFrame(self.groupBox_left)
+        self.line_4.setGeometry(QtCore.QRect(222, 112, 27, 16))
+        self.line_4.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_4.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_4.setObjectName("line_4")
         self.frame_4.raise_()
         self.frame_3.raise_()
         self.frame_2.raise_()
@@ -188,6 +226,12 @@ class Ui_MainWindow(object):
         self.label_2_tacke.raise_()
         self.label.raise_()
         self.label_2.raise_()
+        self.line_5.raise_()
+        self.line_6.raise_()
+        self.line_7.raise_()
+        self.line_2.raise_()
+        self.line_3.raise_()
+        self.line_4.raise_()
         self.horizontalLayout.addWidget(self.groupBox_left)
         self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(290, 10, 281, 371))
@@ -199,15 +243,15 @@ class Ui_MainWindow(object):
         self.groupBox_right_top = QtWidgets.QGroupBox(self.verticalLayoutWidget)
         self.groupBox_right_top.setAutoFillBackground(False)
         self.groupBox_right_top.setTitle("")
-        self.groupBox_right_top.setAlignment(QtCore.Qt.AlignCenter)
         self.groupBox_right_top.setCheckable(False)
         self.groupBox_right_top.setChecked(False)
         self.groupBox_right_top.setObjectName("groupBox_right_top")
         self.button_set_up = QtWidgets.QPushButton(self.groupBox_right_top)
         self.button_set_up.setGeometry(QtCore.QRect(20, 10, 233, 51))
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("icons/set_up.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.button_set_up.setIcon(icon1)
+        set_up_icon = QtGui.QIcon()
+        set_up_icon.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/set_up.ico"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.button_set_up.setIcon(set_up_icon)
         self.button_set_up.setIconSize(QtCore.QSize(24, 23))
         self.button_set_up.setCheckable(False)
         self.button_set_up.setAutoExclusive(False)
@@ -217,17 +261,19 @@ class Ui_MainWindow(object):
         self.button_set_up.setObjectName("button_set_up")
         self.button_reset = QtWidgets.QPushButton(self.groupBox_right_top)
         self.button_reset.setGeometry(QtCore.QRect(20, 65, 233, 51))
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("icons/reset.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.button_reset.setIcon(icon2)
+        reset_icon = QtGui.QIcon()
+        reset_icon.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/reset.ico"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.button_reset.setIcon(reset_icon)
         self.button_reset.setIconSize(QtCore.QSize(24, 24))
         self.button_reset.setAutoExclusive(False)
         self.button_reset.setObjectName("button_reset")
         self.button_to_tray = QtWidgets.QPushButton(self.groupBox_right_top)
         self.button_to_tray.setGeometry(QtCore.QRect(20, 120, 233, 51))
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("icons/go_to_tray.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.button_to_tray.setIcon(icon3)
+        go_to_tray_icon = QtGui.QIcon()
+        go_to_tray_icon.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/go_to_tray.ico"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.button_to_tray.setIcon(go_to_tray_icon)
         self.button_to_tray.setIconSize(QtCore.QSize(24, 24))
         self.button_to_tray.setAutoExclusive(False)
         self.button_to_tray.setObjectName("button_to_tray")
@@ -239,29 +285,33 @@ class Ui_MainWindow(object):
         font.setKerning(True)
         self.groupBox_right_bottom.setFont(font)
         self.groupBox_right_bottom.setAutoFillBackground(False)
-        self.groupBox_right_bottom.setAlignment(QtCore.Qt.AlignCenter)
         self.groupBox_right_bottom.setCheckable(True)
         self.groupBox_right_bottom.setChecked(False)
         self.groupBox_right_bottom.setObjectName("groupBox_right_bottom")
         self.radioButton = QtWidgets.QRadioButton(self.groupBox_right_bottom)
         self.radioButton.setGeometry(QtCore.QRect(60, 43, 161, 22))
         self.radioButton.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.radioButton.setIcon(icon)
+        icon_qshutdown = QtGui.QIcon()
+        icon_qshutdown.addPixmap(QtGui.QPixmap(
+            "/usr/share/timerdown/icons/shutdown.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.radioButton.setIcon(icon_qshutdown)
         self.radioButton.setIconSize(QtCore.QSize(24, 24))
         self.radioButton.setObjectName("radioButton")
         self.radioButton_2 = QtWidgets.QRadioButton(self.groupBox_right_bottom)
         self.radioButton_2.setGeometry(QtCore.QRect(60, 79, 141, 22))
         self.radioButton_2.setLayoutDirection(QtCore.Qt.LeftToRight)
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("icons/reboot.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.radioButton_2.setIcon(icon4)
+        icon_qreboot = QtGui.QIcon()
+        icon_qreboot.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/reboot.ico"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.radioButton_2.setIcon(icon_qreboot)
         self.radioButton_2.setIconSize(QtCore.QSize(24, 24))
         self.radioButton_2.setObjectName("radioButton_2")
         self.apply_Button = QtWidgets.QPushButton(self.groupBox_right_bottom)
         self.apply_Button.setGeometry(QtCore.QRect(20, 120, 233, 51))
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("icons/apply.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.apply_Button.setIcon(icon5)
+        icon_apply = QtGui.QIcon()
+        icon_apply.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/apply.ico"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.apply_Button.setIcon(icon_apply)
         self.apply_Button.setIconSize(QtCore.QSize(24, 24))
         self.apply_Button.setObjectName("apply_Button")
         self.frame_5 = QtWidgets.QFrame(self.groupBox_right_bottom)
@@ -282,20 +332,19 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.groupBox_exit = QtWidgets.QGroupBox(self.horizontalLayoutWidget_2)
         self.groupBox_exit.setTitle("")
-        self.groupBox_exit.setAlignment(QtCore.Qt.AlignCenter)
         self.groupBox_exit.setObjectName("groupBox_exit")
         self.exit_button = QtWidgets.QPushButton(self.groupBox_exit)
         self.exit_button.setGeometry(QtCore.QRect(20, 7, 233, 51))
-        icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("icons/exit.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.exit_button.setIcon(icon6)
+        exit_icon = QtGui.QIcon()
+        exit_icon.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/exit.ico"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.exit_button.setIcon(exit_icon)
         self.exit_button.setIconSize(QtCore.QSize(24, 24))
         self.exit_button.setObjectName("exit_button")
         self.horizontalLayout_2.addWidget(self.groupBox_exit)
 
         self.groupBox_LCD = QtWidgets.QGroupBox(self.horizontalLayoutWidget_2)
         self.groupBox_LCD.setTitle("")
-        self.groupBox_LCD.setAlignment(QtCore.Qt.AlignCenter)
         self.groupBox_LCD.setObjectName("groupBox_LCD")
 
         self.LCD = QtWidgets.QLCDNumber(self.groupBox_LCD)
@@ -331,6 +380,8 @@ class Ui_MainWindow(object):
         self.checkBox_hour.setText(_translate("MainWindow", "hours"))
         self.checkBox_at_time.setText(_translate("MainWindow", "Shutdown PC at:"))
         self.label_top.setText(_translate("MainWindow", "Shutdown PC in:"))
+
+        # Just for spinbox to look like clock :)
         self.label_2_tacke.setText(_translate("MainWindow", ":"))
 
         # Set up button connected to schedule() function:
@@ -368,8 +419,8 @@ class Ui_MainWindow(object):
     ######################
 
     ######################################
-    ## Setup spinbox_hour & spinbox_min ##
-    ##        to current time           ##
+    ## Reset spinbox_hour & spinbox_min ##
+    ## to current time                  ##
     ######################################
 
     def reset_hm(self):
@@ -380,9 +431,8 @@ class Ui_MainWindow(object):
 
     #################################
     ## Big schedule function which ##
-    ##       do all the job        ##
+    ## do all the job              ##
     #################################
-
     def schedule(self):
         time = datetime.datetime.now()
         # time = QTime.currentTime() - You can use QTimer instead timedate
@@ -423,9 +473,9 @@ class Ui_MainWindow(object):
         self.trayTooltip()  # Function under
 
     #############################################################
-    ##      Operation which is used in "schedule" function     ##
+    ## Operation which is used in "schedule" function          ##
     ## to change Tray tooltip according to the given operation ##
-    ##                 of "schedule" function                  ##
+    ## of "schedule" function                                  ##
     #############################################################
 
     def trayTooltip(self):
@@ -433,7 +483,7 @@ class Ui_MainWindow(object):
 
         # If you choose to shutdown PC in "X" minutes:
         if self.checkBox_min.isChecked():
-            # min_in_s = self.spinBox_top.value() * 60  # Min in sec, for using in timedelta
+            #min_in_s = self.spinBox_top.value() * 60  # Min in sec, for using in timedelta
             #action_time = now + datetime.timedelta(seconds=min_in_s)
             action_time = now + datetime.timedelta(minutes=self.spinBox_top.value())
             if action_time.day == now.day:
@@ -445,7 +495,7 @@ class Ui_MainWindow(object):
 
         # If you choose to shutdown PC in "X" hours:
         elif self.checkBox_hour.isChecked():
-            # hour_in_s = self.spinBox_top.value() * 3600  # Hours in sec, for using in timedelta
+            #hour_in_s = self.spinBox_top.value() * 3600  # Hours in sec, for using in timedelta
             #action_time = now + datetime.timedelta(seconds=hour_in_s)
             action_time = now + datetime.timedelta(hours=self.spinBox_top.value())
             if action_time.day == now.day:
@@ -454,6 +504,18 @@ class Ui_MainWindow(object):
             else:
                 self.tray.setToolTip(
                     f"Your PC will shutdown on {action_time.day}/{action_time.month}/{action_time.year} at {action_time.hour}:{action_time.minute} !")
+
+    #############################
+    ## Functions for LCD clock ##
+    ## - using QTime -         ##
+    #############################
+
+    def showTime(self):
+        time = QTime.currentTime()
+        text = time.toString('hh:mm:ss')
+        if (time.second() % 2) == 0:
+            text = time.toString('hh:mm ss')
+        self.LCD.display(text)
 
     ########################################
     ## Reset all your schedule and set up ##
@@ -466,20 +528,13 @@ class Ui_MainWindow(object):
         if self.checkBox_min.isChecked():
             self.spinBox_top.setValue(15)
         elif self.checkBox_hour.isChecked():
-            self.spinBox_top.setValue(2)
-        self.reset_hm()
+            self.spinBox_top.setValue(1)
+        self.spinBox_hour.setValue(time.hour)  # "hour()" if you are using Qtime
+        self.spinBox_min.setValue(time.minute)
         self.label_info.setText("Set up again!")
         self.tray.setToolTip("TimerDown - there is no schedule!")
         os.system("shutdown -c")
         self.button_set_up.setEnabled(True)
-
-    ##########################
-    ## Minimise app to tray ##
-    ##########################
-
-    def minimise(self):
-        MainWindow.hide()
-        self.tray.setVisible(True)
 
     #################################
     ## Operation for Quick actions ##
@@ -493,17 +548,13 @@ class Ui_MainWindow(object):
         else:
             self.label_info.setText("No quick action selected!")
 
-    #############################
-    ## Functions for LCD clock ##
-    ##     - using QTime -     ##
-    #############################
+    ##########################
+    ## Minimise app to tray ##
+    ##########################
 
-    def showTime(self):
-        time = QTime.currentTime()
-        text = time.toString('hh:mm:ss')
-        if (time.second() % 2) == 0:
-            text = time.toString('hh:mm ss')
-        self.LCD.display(text)
+    def minimise(self):
+        MainWindow.hide()
+        self.tray.setVisible(True)
 
     ########################################
     ## To show app when minimised in tray ##
@@ -515,7 +566,7 @@ class Ui_MainWindow(object):
     ###################
     ## Exit from app ##
     ###################
-
+    # Izlazi iz aplikacije na dugme Exit
     def exit_app(self):
         sys.exit()
 
