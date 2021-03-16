@@ -368,7 +368,7 @@ class Ui_MainWindow(object):
         self.apply_Button.clicked.connect(self.quick)
 
         # Exit button:
-        self.exit_button.setText(_translate("MainWindow", "Exit from TimerDown"))
+        self.exit_button.setText(_translate("MainWindow", "Exit"))
         self.exit_button.clicked.connect(self.exit_app)
 
 #######################################################################################
