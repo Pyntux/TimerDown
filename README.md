@@ -23,6 +23,10 @@ App is writen in Python & Pyqt5.
 $ python TimerDown.py
 ```
 
+### How app works:
+
+- App is using "shutdown" command from Linux core system and "systemd" commands for hibernate and sleep options.
+
 ### Packages
 
 If you are using Arch Linux or Arch based distro, there is 2 AUR packages:
