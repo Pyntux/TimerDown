@@ -77,7 +77,7 @@ class Ui_MainWindow(object):
         self.exit_button = QtWidgets.QPushButton(self.frame_buttons)
         self.exit_button.setMinimumSize(QtCore.QSize(0, 40))
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/icons/exit.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("/usr/share/timerdown/icons/exit.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.exit_button.setIcon(icon2)
         self.exit_button.setIconSize(QtCore.QSize(24, 24))
         self.exit_button.setObjectName("exit_button")
