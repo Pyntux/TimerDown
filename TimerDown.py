@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import gui
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import QTime
@@ -9,7 +10,6 @@ import sys
 import os
 
 sys.path.append('/usr/share/timerdown/')
-import gui
 
 
 class App(QtWidgets.QMainWindow, gui.Ui_MainWindow):
@@ -205,7 +205,7 @@ class App(QtWidgets.QMainWindow, gui.Ui_MainWindow):
     #         self.set_up_button.setEnabled(False)
 
     def quick(self):
-        item = self.comboBox_quick_actions.currentText()
+        item = self.comboBox_quick.currentText()
         if item == "Sleep":
             os.system("systemctl suspend")
         elif item == "Hibernate":
@@ -233,7 +233,7 @@ class App(QtWidgets.QMainWindow, gui.Ui_MainWindow):
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    #app.setStyle("Fusion")
+    # app.setStyle("Fusion")
     form = App()
     form.show()
     app.exec_()
