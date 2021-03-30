@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-import gui
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import QTime
@@ -10,7 +9,7 @@ import sys
 import os
 
 sys.path.append('/usr/share/timerdown/')
-
+import gui
 
 class App(QtWidgets.QMainWindow, gui.Ui_MainWindow):
     def __init__(self, parent=None):
