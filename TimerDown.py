@@ -34,7 +34,7 @@ class App(QtWidgets.QMainWindow, gui.Ui_MainWindow):
         self.timer_lcd = QtCore.QTimer()
         # vuče showTime() funkciju da prikaže sat i datum (u istoj je funkciji kod i za datum)
         self.timer_lcd.timeout.connect(self.showTime)
-        self.timer_lcd.start()
+        self.timer_lcd.start(1000)
 
         # Ovo je POKUŠAJ da se spinboxovi nameste kao sat, ali tad ne možeš da podesiš vreme kad da se gasi
         # self.timer_spinBox = QtCore.QTimer()
@@ -172,8 +172,8 @@ class App(QtWidgets.QMainWindow, gui.Ui_MainWindow):
         date_text = date.toString('dd MM yyyy')
         time = QTime.currentTime()
         time_text = time.toString('hh:mm:ss')
-        if (time.second() % 2) == 0:
-            time_text = time.toString('hh:mm ss')
+        #if (time.second() % 2) == 0:
+        #    time_text = time.toString('hh:mm ss')
         self.lcd_clock.display(time_text)
         self.lcd_date.display(date_text)
 
